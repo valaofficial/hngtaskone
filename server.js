@@ -1,8 +1,10 @@
 const express = require('express');
+const serverless = require('serverless-http')
 
 const app = express();
+const router = express.Router();
 
-app.get('/api', (req, res) =>{
+router.get('/api', (req, res) =>{
     res.setHeader('Content-Type', 'application/json');
 
     const slack_name = req.query.slack_name;
@@ -26,4 +28,12 @@ app.get('/api', (req, res) =>{
     })
 });
 
-app.listen(3000);
+app.use('/', router)
+
+// app.listen(3000);
+
+module.exports.handler = serverless(app);
+
+
+// [build]
+// functions = "functions"
