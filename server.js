@@ -2,6 +2,7 @@ const express = require('express');
 
 const app = express();
 const router = express.Router();
+const PORT = 9001;
 
 router.get('/api', (req, res) =>{
     res.setHeader('Content-Type', 'application/json');
@@ -28,3 +29,5 @@ router.get('/api', (req, res) =>{
 });
 
 app.use('/', router)
+
+app.listen(PORT, () => console.log(`app listening on port ${PORT}!`))
