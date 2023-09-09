@@ -12,9 +12,18 @@ app.get('/api', (req, res) =>{
     const weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
     let current_day = weekdays[date.getDay()];
     var utc_time = date.toUTCString()
-    github_file_url = ''
-    github_repo_url = 'https://github.com/valaofficial/hngtaskone';
-    res.send(current_day)
+    const github_file_url = 'https://github.com/valaofficial/hngtaskone/blob/main/server.js';
+    const github_repo_url = 'https://github.com/valaofficial/hngtaskone';
+
+    res.json({
+        slack_name,
+        track,
+        current_day,
+        utc_time,
+        github_file_url,
+        github_repo_url,
+        status_code: 200
+    })
 });
 
 app.listen(3000);
