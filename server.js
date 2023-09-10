@@ -9,7 +9,7 @@ router.get('/api', (req, res) =>{
 
     const slack_name = req.query.slack_name;
     const track = req.query.track;
-    
+
 
     const date = new Date;
     const weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
@@ -17,9 +17,9 @@ router.get('/api', (req, res) =>{
     let year = date.getFullYear()
     let month = date.getMonth()
     let day = date.getDate()
-    let hours = date.getHours();
-    let mins = date.getMinutes();
-    let secs = date.getSeconds();
+    let hours = String(date.getHours()).padStart(2, '0');
+    let mins = String(date.getMinutes()).padStart(2, '0');
+    let secs = String(date.getSeconds()).padStart(2, '0');
     var utc_time = `${year}-${month}-${day}T${hours}:${mins}:${secs}Z`
 
 
